@@ -62,3 +62,5 @@ alt - n : yabai -m window --toggle split
 alt - return : open -na "Alacritty"
 # alt - q : yabai -m window --close # just close window
 alt - q : kill -15 $(yabai -m query --windows --window | jq -r '.pid')
+
+cmd - h : : # 何もしない
