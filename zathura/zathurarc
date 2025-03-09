@@ -1,0 +1,23 @@
+# Zathura configuration file
+# See man `man zathurarc'
+
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+#stop at page boundries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.1
+
+#zoom settings
+set guioptions ""
+
+set scroll-step 1
+set scroll-hstep 1
+set zoom-step 1
+
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
