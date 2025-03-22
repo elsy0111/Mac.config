@@ -18,9 +18,9 @@ keymap("n", "<S-p>", ":1<CR><S-v><S-g>y", opts)
 -- ESC*2 でハイライトやめる
 keymap("n", "<Esc><Esc>", ":nohlsearch<CR>", opts)
 
-keymap("n", "<C-_>", "gcc",opts_)
-keymap("v", "<C-_>", "gc",opts_)
-keymap("i", "<C-_>", "<Esc>gcca",opts_)
+keymap("n", "<C-/>", "gcc",opts_)
+keymap("v", "<C-/>", "gc",opts_)
+keymap("i", "<C-/>", "<Esc>gcca",opts_)
 
 -- コンマの後に自動的にスペースを挿入
 keymap("i", ",", ",<Space>", opts)

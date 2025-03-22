@@ -29,15 +29,15 @@ alt - 7 : yabai -m space --focus 7
 alt - 8 : yabai -m space --focus 8
 alt - 9 : yabai -m space --focus 9
 
-shift + alt - 1 : yabai -m window --space 1
-shift + alt - 2 : yabai -m window --space 2
-shift + alt - 3 : yabai -m window --space 3
-shift + alt - 4 : yabai -m window --space 4
-shift + alt - 5 : yabai -m window --space 5
-shift + alt - 6 : yabai -m window --space 6
-shift + alt - 7 : yabai -m window --space 7
-shift + alt - 8 : yabai -m window --space 8
-shift + alt - 9 : yabai -m window --space 9
+alt + shift - 1 : yabai -m window --space 1 && yabai -m space --focus 1
+alt + shift - 2 : yabai -m window --space 2 && yabai -m space --focus 2
+alt + shift - 3 : yabai -m window --space 3 && yabai -m space --focus 3
+alt + shift - 4 : yabai -m window --space 4 && yabai -m space --focus 4
+alt + shift - 5 : yabai -m window --space 5 && yabai -m space --focus 5
+alt + shift - 6 : yabai -m window --space 6 && yabai -m space --focus 6
+alt + shift - 7 : yabai -m window --space 7 && yabai -m space --focus 7
+alt + shift - 8 : yabai -m window --space 8 && yabai -m space --focus 8
+
 
 # fullscreen / floating
 # |                         | i3-wm                | yabai               |
@@ -60,6 +60,7 @@ shift + alt - space : yabai -m window --toggle float && yabai -m window --grid 4
 alt - n : yabai -m window --toggle split
 
 alt - return : open -na "Alacritty"
+alt - e : open -a "Finder"
 # alt - q : yabai -m window --close # just close window
 alt - q : kill -15 $(yabai -m query --windows --window | jq -r '.pid')
 
