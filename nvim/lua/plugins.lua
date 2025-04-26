@@ -17,61 +17,116 @@ vim.cmd.packadd "packer.nvim"
 
 -- Install your plugins here
 return packer.startup(function(use)
-
-	use({ "rcarriga/nvim-notify" })
-	use({ "MunifTanjim/nui.nvim" })
-	use({ "folke/noice.nvim" })
-
 	use({ "wbthomason/packer.nvim" })
-	-- use({ "nvim-lua/plenary.nvim" }) -- Common utilities
+
+	use({ "folke/noice.nvim", 
+		requires = { "MunifTanjim/nui.nvim" },
+		config = function()
+			require("noice").setup({
+				lsp = {
+					hover = {
+						enabled = false,
+					},
+					signature = {
+						enabled = false,
+					},
+				},
+			})
+		end,
+	})
+	use {
+		"rcarriga/nvim-notify",
+		config = function()
+			local notify = require("notify")
+			notify.setup({
+				stages = "fade_in_slide_out",
+				background_colour = "#1e1e2e",
+				timeout = 1000,
+				render = "wrapped-compact",
+			})
+			vim.notify = notify
+		end,
+	}
 
 	-- Colorschemes
-	use({ "theJian/vim-fethoi" })
-	use({ "machakann/vim-colorscheme-imas" })
-	use({ "ayu-theme/ayu-vim" })
-	use({ "shaunsingh/nord.nvim" })
-	use({ "Abstract-IDE/Abstract-cs" })
+	-- use({ "theJian/vim-fethoi" })
+	-- use({ "machakann/vim-colorscheme-imas" })
+	-- use({ "ayu-theme/ayu-vim" })
+	-- use({ "shaunsingh/nord.nvim" })
+	-- use({ "Abstract-IDE/Abstract-cs" })
+	-- use({ "whatyouhide/vim-gotham" })
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	require("catppuccin").setup({
+			flavour = "mocha",
+			color_overrides = {
+					mocha = {
+							base = "#12121a",
+							mantle = "#12121a",
+							crust = "#12121a",
+					},
+			},
+			transparent_background = true,
+	})
+	vim.cmd.colorscheme("catppuccin-mocha")
+	vim.cmd("highlight TelescopeSelection cterm=bold gui=bold guifg=#a6e3a1 guibg=#181825")
 
 	-- cmp plugins
-	-- use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
-	-- use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-	-- use({ "hrsh7th/cmp-path" }) -- path completions
-	-- use({ "hrsh7th/cmp-cmdline" }) -- cmdline completions
-	-- use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
-	-- use({ "hrsh7th/cmp-nvim-lsp" })
-	-- use({ "hrsh7th/cmp-nvim-lua" })
-	-- use({ "onsails/lspkind-nvim" })
+	use({ 
+		"hrsh7th/nvim-cmp", 	
+		requires = {
+			"neovim/nvim-lspconfig",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline"
+		}
+	})
 	use({ "neoclide/coc.nvim" })
 
-	-- snippets
-	-- use({ "L3MON4D3/LuaSnip" }) --snippet engine
-
 	-- LSP
-	-- use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	-- use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
-	-- use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	-- use({ "glepnir/lspsaga.nvim" }) -- LSP UIs
+	-- use({ "neovim/nvim-lspconfig" }) 
+	-- use({ "williamboman/nvim-lsp-installer" }) 
+	-- use({ "jose-elias-alvarez/null-ls.nvim" })
+	-- use({ "glepnir/lspsaga.nvim" })
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })
 
+	-- Comment 
 	use({ "tpope/vim-commentary" })
 	use({ "Yggdroot/indentLine" })
 
-	use({ "nvim-lualine/lualine.nvim" })
+	-- Lualine
+	use({ 
+		"nvim-lualine/lualine.nvim", 
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
+	require("lualine").setup({
+		options = {
+			theme = "catppuccin",
+			section_separators = "",
+			component_separators = "",
+		},
+	})
+
+	-- File
 	use({ "preservim/nerdtree" })
 	use({ "ryanoasis/vim-devicons" })
 	use({ "nvim-tree/nvim-web-devicons" })
+
+	-- Copilot
 	use({ "github/copilot.vim" })
 
-	-- use({ "cohama/lexima.vim" })
+	-- Smooth scrolling and cursor
+  use {"psliwka/vim-smoothie"}
+	use {
+		"sphamba/smear-cursor.nvim",
+		config = function()
+			require("smear_cursor").setup()
+			require('smear_cursor').enabled = true
+		end,
+	}
 
-	-- use({ "williamboman/mason.nvim" })
-	-- use({ "williamboman/mason-lspconfig.nvim" })
-
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

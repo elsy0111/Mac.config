@@ -13,10 +13,10 @@ local options = {
 	autoindent,
 
 	--Auto Indent Length
-	shiftwidth=4,
+	shiftwidth=2,
 
 	--Tab Length
-	tabstop=4,
+	tabstop=2,
 
 	--Clipboard
 	clipboard = "unnamedplus",

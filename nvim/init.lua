@@ -1,8 +1,9 @@
+require("plugins")
 require("base")
 require("options")
 require("keymaps")
-require("plugins")
 require("colorscheme")
+require("notify_settings")
 
 -- require("mason_")
 
@@ -13,3 +14,4 @@ vim.cmd [[source ~/.config/nvim/tab-comp.vim]]
 -- require("clangd_")
 -- require("nvim-cmp_")
 
+vim.notify = require("notify")
