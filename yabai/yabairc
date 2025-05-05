@@ -11,6 +11,14 @@ yabai -m config window_opacity               on
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        1.0
+
+# yabai -m config window_border                off
+# yabai -m config window_border_width          5
+# yabai -m config active_window_border_color   0xff8CABC8
+# yabai -m config normal_window_border_color   0xff434c5e
+# yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config auto_balance                 off
+
 # yabai -m config window_border                on
 # yabai -m config window_border_width          10
 # yabai -m config window_border_radius         10
@@ -21,7 +29,6 @@ yabai -m config window_animation_duration    0.0
 # yabai -m config normal_window_border_color   0xff555555
 # yabai -m config insert_feedback_color        0xaad75f5f
 yabai -m config split_ratio                  0.50
-yabai -m config auto_balance                 on
 yabai -m config mouse_modifier               fn
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
