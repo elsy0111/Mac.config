@@ -4,6 +4,7 @@ require("options")
 require("keymaps")
 require("colorscheme")
 require("notify_settings")
+require("prettier")
 
 -- require("mason_")
 

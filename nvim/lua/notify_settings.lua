@@ -1,8 +1,8 @@
-vim.api.nvim_create_autocmd("BufWritePost", {
-  callback = function()
-    vim.notify("Saved!", vim.log.levels.INFO, { title = "File Saved" })
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   callback = function()
+--     vim.notify("Saved!", vim.log.levels.INFO, { title = "File Saved" })
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "LspDiagnosticsChanged",
